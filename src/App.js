@@ -20,7 +20,17 @@ class App extends Component {
 
     if (from && to && from.length === to.length) {
       this.setState({isSearching: true})
-      axios.get(`https://qux5svesmk.execute-api.us-west-2.amazonaws.com/dev/wordchain?from=${from}&to=${to}`)
+      axios.get(`https://vpce-056d3cd2ffde7eba3-j01dp3hg-us-east-1a.execute-api.us-east-1.vpce.amazonaws.com/dev/wordchain?from=${from}&to=${to}`, {
+        headers: {
+          'x-api-key' : 'CkW9N1eIM83VpgCJIjSvTaXuOqFI7qvV6Mfo60yn',
+          'x-apigw-api-id' : '3vu32re33m'
+        }
+      })
+      // axios.get(`https://qux5svesmk.execute-api.us-west-2.amazonaws.com/dev/wordchain?from=${from}&to=${to}`, {
+      //   headers: {
+      //     'x-api-key' : 'lw1VY5iWCk9zfU0Yx2ycG7giLiKmkJgn9FDk4xjT',
+      //   }
+      // })
       .then(res => {
         this.setState({chain: res.data, isSearching: false})
       })
